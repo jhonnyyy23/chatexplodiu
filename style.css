@@ -1,0 +1,39 @@
+:root {
+  --bg: #0b0b12;
+  --card: #15121f;
+  --text: #ecebf3;
+  --muted: #a7a3b8;
+  --purple: #9146ff;
+  --green: #53fc18;
+  --orange: #ffc428;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at 50% 0%, #241240 0%, var(--bg) 60%) fixed;
+  color: var(--text);
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+header img { width: 56px; height: 56px; border-radius: 50%; }
+header a { color: var(--text); text-decoration: none; font-weight: 800; font-size: 22px; letter-spacing: .5px; }
+header a span { color: var(--orange); }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 6px; }
+h2 { font-size: 19px; margin: 30px 0 6px; color: var(--green); }
+p, li { color: var(--text); }
+.muted { color: var(--muted); font-size: 14px; }
+.card { background: var(--card); border: 1px solid #2a2440; border-radius: 14px; padding: 22px; margin-top: 20px; }
+a { color: var(--green); }
+nav { margin-top: 36px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
+code, textarea {
+  font: 14px/1.5 ui-monospace, Consolas, monospace;
+  background: #0d0b16; color: var(--text);
+  border: 1px solid #2a2440; border-radius: 10px;
+}
+textarea { width: 100%; min-height: 120px; padding: 12px; resize: vertical; word-break: break-all; }
+button {
+  margin-top: 12px; padding: 12px 22px; border: 0; border-radius: 10px; cursor: pointer;
+  font-weight: 700; font-size: 15px; color: #0b0b12;
+  background: linear-gradient(90deg, var(--purple), var(--green));
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Chat Explodiu - Login</title>
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header><img src="icon.png" alt=""><a href="index.html">CHAT <span>EXPLODIU</span></a></header>
+  <h1 id="title">Login with TikTok</h1>
+  <p id="msg">Copy the address below and paste it into the Chat Explodiu terminal.</p>
+  <div class="card">
+    <textarea id="url" readonly></textarea>
+    <button id="copy" type="button">Copy address</button>
+  </div>
+  <p class="muted">This page doesn't store or send anything. The code is valid for a few minutes and only works with your app.</p>
+</main>
+<script>
+  var box = document.getElementById("url");
+  box.value = window.location.href;
+  var q = new URLSearchParams(window.location.search);
+  if (q.get("error")) {
+    document.getElementById("title").textContent = "Authorization denied";
+    document.getElementById("msg").textContent = "TikTok returned: " + (q.get("error_description") || q.get("error"));
+  } else if (!q.get("code")) {
+    document.getElementById("msg").textContent = "No code was received. Start the login again from the terminal.";
+  }
+  document.getElementById("copy").addEventListener("click", function () {
+    box.select();
+    var done = function () { document.getElementById("copy").textContent = "Copied!"; };
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(box.value).then(done, function () { document.execCommand("copy"); done(); });
+    } else {
+      document.execCommand("copy"); done();
+    }
+  });
+</script>
+</body>
+</html>
